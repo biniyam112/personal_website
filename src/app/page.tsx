@@ -23,7 +23,7 @@ export default function Home() {
           {/* Left Content */}
           <div className="space-y-8 z-10">
             <div className="space-y-3">
-              <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-emerald-100/30 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800/30">
+              <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-emerald-100/30 border border-emerald-200 dark:border-emerald-800/30">
                 <span style={{ color: 'var(--primary)', letterSpacing: 'var(--letter-spacing-wide)' }} className="text-sm font-semibold">DATA SCIENCE MASTER&apos;S STUDENT</span>
               </div>
               <h1 className="hero-title text-5xl md:text-6xl font-extrabold tracking-tight" style={{ letterSpacing: 'var(--letter-spacing-tight)' }}>

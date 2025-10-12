@@ -20,10 +20,6 @@ export default function SkillsSection({
     return (
         <section className="py-16 px-4">
             <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-[1fr,2fr] gap-8 items-start">
-                <div className="flex justify-center md:justify-start">
-                    <Image src="/images/lottie_placeholder.png" alt="skills graphic" width={224} height={224} className="opacity-90" />
-                </div>
-
                 <div>
                     <header className="mb-6">
                         <h2 className="section-title text-4xl md:text-5xl font-extrabold tracking-tight" style={{ letterSpacing: 'var(--letter-spacing-tight)' }}>{title.toUpperCase()}</h2>
