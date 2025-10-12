@@ -18,7 +18,7 @@ export default function CourseCard({ title, institution, description, bulletPoin
         <div className="course-card">
             <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3 mb-4">
                 <div>
-                    <h3 className="text-xl font-semibold" style={{ color: '#000000', letterSpacing: 'var(--letter-spacing-tight)' }}>
+                    <h3 className="text-xl font-semibold course-title">
                         {title}
                     </h3>
                     <p className="text-base font-medium" style={{ color: 'var(--primary)' }}>
@@ -28,7 +28,7 @@ export default function CourseCard({ title, institution, description, bulletPoin
             </div>
 
             {description && (
-                <p className="text-base mb-3" style={{ color: 'var(--muted)', letterSpacing: 'var(--letter-spacing-normal)' }}>
+                <p className="text-base mb-3 course-description">
                     {description}
                 </p>
             )}
@@ -38,8 +38,7 @@ export default function CourseCard({ title, institution, description, bulletPoin
                     {bulletPoints.map((point, index) => (
                         <li
                             key={index}
-                            className="text-base"
-                            style={{ color: 'var(--muted)', letterSpacing: 'var(--letter-spacing-normal)' }}
+                            className="text-base course-bullet"
                         >
                             {point}
                         </li>

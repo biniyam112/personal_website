@@ -32,7 +32,10 @@ export default function Home() {
               </h1>
             </div>
 
-            <p style={{ color: 'var(--muted)', letterSpacing: 'var(--letter-spacing-normal)', lineHeight: 'var(--body-line-height)' }} className="text-lg max-w-xl">
+            <p
+              style={{ letterSpacing: 'var(--letter-spacing-normal)', lineHeight: 'var(--body-line-height)' }}
+              className="section-subtitle text-lg max-w-xl"
+            >
               Data Science master&apos;s student at <span className="font-medium">Fordham University</span> in New York. Passionate about working on ML and big data projects. Looking forward to internships in data science and software development.
             </p>
 
@@ -43,8 +46,7 @@ export default function Home() {
                 VIEW PROJECTS
               </a>
               <a href="#contact"
-                className="inline-flex items-center px-6 py-3 rounded-full font-medium border border-emerald-200 dark:border-emerald-800/50 transition-colors hover:bg-emerald-50 dark:hover:bg-emerald-900/20"
-                style={{ color: 'var(--foreground)' }}>
+                className="section-subtitle inline-flex items-center px-6 py-3 rounded-full font-medium border border-emerald-200 dark:border-emerald-800/50 transition-colors hover:bg-emerald-50 dark:hover:bg-emerald-900/20">
                 CONTACT ME
                 <svg xmlns="http://www.w3.org/2000/svg" className="ml-2 h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                   <path fillRule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
@@ -175,7 +177,7 @@ export default function Home() {
             <h2 className="section-title text-4xl md:text-5xl font-extrabold tracking-tight">
               Work Experience
             </h2>
-            <p className="mt-2 text-sm md:text-base text-[color:var(--muted)]">
+            <p className="mt-2 text-sm md:text-base section-subtitle">
               Professional experience and contributions
             </p>
           </header>
@@ -227,7 +229,7 @@ export default function Home() {
         <div className="max-w-6xl mx-auto">
           <header className="mb-10 text-center">
             <h2 className="section-title text-4xl md:text-5xl font-extrabold tracking-tight">Education</h2>
-            <p className="mt-2 text-sm md:text-base text-[color:var(--muted)]">Academic background and relevant coursework</p>
+            <p className="mt-2 text-sm md:text-base section-subtitle">Academic background and relevant coursework</p>
           </header>
 
           <div className="max-w-4xl mx-auto space-y-6">
@@ -275,7 +277,7 @@ export default function Home() {
         <div className="max-w-6xl mx-auto">
           <header className="mb-10 text-center">
             <h2 className="section-title text-4xl md:text-5xl font-extrabold tracking-tight" style={{ letterSpacing: 'var(--letter-spacing-tight)' }}>COURSES</h2>
-            <p className="mt-2 text-sm md:text-base text-[color:var(--muted)]">Professional training and certifications</p>
+            <p className="mt-2 text-sm md:text-base section-subtitle">Professional training and certifications</p>
           </header>
 
           <div className="max-w-4xl mx-auto space-y-8">

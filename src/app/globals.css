@@ -472,6 +472,14 @@ strong {
   font-weight: 700 !important;
 }
 
+.section-subtitle {
+  color: #595959;
+}
+
+.dark .section-subtitle {
+  color: #e2e8f0;
+}
+
 /* Work Experience Card Styles - Clean Resume Style */
 .work-experience-card {
   background: var(--card-bg);
@@ -507,6 +515,10 @@ strong {
   letter-spacing: var(--letter-spacing-normal);
 }
 
+.dark .position-title {
+  color: #ffffff;
+}
+
 .work-meta {
   display: flex;
   gap: 1.5rem;
@@ -525,15 +537,23 @@ strong {
   align-items: center;
   gap: 0.5rem;
   font-size: 0.9rem;
-  color: var(--muted);
+  color: #333333;
   font-weight: 500;
   letter-spacing: var(--letter-spacing-slight);
 }
 
+.dark .meta-item {
+  color: #e2e8f0;
+}
+
 .meta-icon {
-  color: var(--muted);
+  color: #333333;
   opacity: 0.7;
   flex-shrink: 0;
+}
+
+.dark .meta-icon {
+  color: #e2e8f0;
 }
 
 .accomplishments-list {
@@ -561,9 +581,13 @@ strong {
 .accomplishment-text {
   font-size: 0.975rem;
   line-height: 1.65;
-  color: var(--muted);
+  color: #333333;
   margin: 0;
   opacity: 1;
+}
+
+.dark .accomplishment-text {
+  color: #e2e8f0;
   letter-spacing: var(--letter-spacing-normal);
 }
 
@@ -607,12 +631,20 @@ strong {
   letter-spacing: var(--letter-spacing-normal);
 }
 
+.dark .degree-title {
+  color: #ffffff;
+}
+
 .edu-meta {
   display: flex;
   gap: 1.25rem;
   flex-wrap: wrap;
-  color: var(--muted);
+  color: #333333;
   font-weight: 500;
+}
+
+.dark .edu-meta {
+  color: #e2e8f0;
 }
 
 .gpa-pill {
@@ -633,9 +665,13 @@ strong {
 .courses-title {
   font-size: 0.95rem;
   font-weight: 700;
-  color: var(--foreground);
+  color: #000000;
   margin-bottom: 0.5rem;
   letter-spacing: var(--letter-spacing-normal);
+}
+
+.dark .courses-title {
+  color: #ffffff;
 }
 
 .courses-grid {
@@ -647,7 +683,7 @@ strong {
 .course-chip {
   border: 1px solid var(--glass-border);
   background: rgba(0,0,0,0.02);
-  color: var(--muted);
+  color: #595959;
   padding: 0.35rem 0.6rem;
   border-radius: 9999px;
   font-size: 0.85rem;
@@ -657,6 +693,7 @@ strong {
 
 .dark .course-chip {
   background: rgba(255,255,255,0.05);
+  color: #e2e8f0;
 }
 
 .edu-links {
@@ -825,6 +862,33 @@ html:not([data-theme="dark"]) body {
   border-radius: 12px;
   background: var(--card-bg);
   border: 1px solid var(--glass-border);
+}
+
+.course-title {
+  color: #000000;
+  letter-spacing: var(--letter-spacing-tight);
+}
+
+.dark .course-title {
+  color: #ffffff;
+}
+
+.course-description {
+  color: #595959;
+  letter-spacing: var(--letter-spacing-normal);
+}
+
+.dark .course-description {
+  color: #e2e8f0;
+}
+
+.course-bullet {
+  color: #595959;
+  letter-spacing: var(--letter-spacing-normal);
+}
+
+.dark .course-bullet {
+  color: #e2e8f0;
   transition: all 0.3s ease;
   backdrop-filter: blur(10px);
   margin-bottom: 1.5rem;
@@ -881,8 +945,12 @@ html:not([data-theme="dark"]) body {
 .contact-value {
   font-size: 0.9rem;
   font-weight: 500;
-  color: var(--foreground);
+  color: #000000;
   letter-spacing: var(--letter-spacing-normal);
+}
+
+.dark .contact-value {
+  color: #ffffff;
 }
 
 .dark .contact-icon.linkedin {
