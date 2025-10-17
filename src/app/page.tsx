@@ -100,14 +100,13 @@ export default function Home() {
         subtitle="These skill ratings reflect my proficiency across data science, software engineering, and design disciplines. I'm continuously learning and expanding my expertise through academic projects, personal initiatives, and hands-on experience. View my work at "
         githubUrl="https://github.com/biniyam112"
         skills={[
-          { skill: "Python & ML Libraries", percentage: 95 },
-          { skill: "Machine Learning & AI", percentage: 92 },
-          { skill: "Data Analysis & Visualization", percentage: 90 },
-          { skill: "FastAPI & Backend Development", percentage: 88 },
-          { skill: "React.js & Flutter", percentage: 85 },
-          { skill: "PostgreSQL & Database Design", percentage: 87 },
-          { skill: "Docker & Kubernetes", percentage: 80 },
           { skill: "Data Structures & Algorithms", percentage: 93 },
+          { skill: "Data Analysis & Visualization", percentage: 84 },
+          { skill: "Flutter & Dart", percentage: 90 },
+          { skill: "FastAPI & Backend Development", percentage: 68 },
+          { skill: "PostgreSQL & Database Design", percentage: 87 },
+          { skill: "Docker & Kubernetes", percentage: 60 },
+          { skill: "Determination to Learn", percentage: 100 },
         ]}
       />
 
@@ -209,15 +208,13 @@ export default function Home() {
 
             <WorkExperienceCard
               company="Upwork - Freelance Platform"
-              position="Data Science & Web Development Specialist"
-              duration="2022 - Present"
+              position="Flutter Mobile Developer - Rising Talent"
+              duration="Mar 2025 - December 2025"
               location="Remote"
               accomplishments={[
-                "Achieved 'Rising Talent' status with $15,000+ in earnings and 5-star client ratings",
-                "Delivered data analysis projects using Python, pandas, and machine learning algorithms",
-                "Built custom web applications for clients using React, Next.js, and modern JavaScript",
-                "Completed 20+ successful projects with 100% client satisfaction rate",
-                "Specialized in data visualization, statistical modeling, and full-stack development"
+                "Flutter mobile development with Firebase backend",
+                "Cloud functions for serverless backend logic and push notifications",
+                "100% project completion rate",
               ]}
             />
           </div>
@@ -250,23 +247,26 @@ export default function Home() {
                 "Optimization",
               ]}
               links={[
-                { label: "Program Page", href: "https://www.fordham.edu/graduate-school-of-arts-and-sciences/academics/programs/data-science-ms/" },
-                { label: "Department", href: "https://www.fordham.edu/graduate-school-of-arts-and-sciences/" }
+                { label: "Program Page", href: "https://www.fordham.edu/academics/departments/computer-and-information-science/academic-programs/graduate-programs/master-of-science-in-data-science/" },
               ]}
             />
 
             <EducationCard
-              school="[Your Undergraduate University]"
-              degree="BSc in [Your Major]"
-              duration="[Start Year] – [End Year]"
-              location="[City, Country]"
+              school="Addis Ababa University"
+              degree="BSc in Computer Science"
+              duration="September 2017 – June 2022"
+              location="Addis Ababa, Ethiopia"
+              gpa="3.50/4.0"
               courses={[
                 "Algorithms",
                 "Data Structures",
                 "Operating Systems",
                 "Computer Networks",
               ]}
-              links={[]}
+              links={[
+                { label: "University", href: "https://www.aau.edu.et/" },
+                { label: "Honors", href: "https://drive.google.com/file/d/1pqSdssvyY8ulAlq0DYbUZIjkQORTYewO/view" }
+              ]}
             />
           </div>
         </div>
@@ -285,7 +285,7 @@ export default function Home() {
               title="Supervised Machine Learning: Regression and Classification"
               institution="Stanford Online"
               links={[
-                { label: "Certificate", href: "https://www.coursera.org/account/accomplishments/verify/123456" }
+                { label: "Certificate", href: "https://www.coursera.org/account/accomplishments/verify/5QQ5DM4WAOB2" }
               ]}
             />
 
@@ -294,7 +294,7 @@ export default function Home() {
               institution="United Nations Frontier Tech Leaders Programme"
               description="Participated in the 2025 United Nations Development Program Machine Learning cohort."
               links={[
-                { label: "Certificate", href: "https://unitednations.edu/verify/ml-cert-2025" }
+                { label: "Certificate", href: "https://drive.google.com/file/d/1wTiGOC4ATiVHsWwmwnBzzfMGApsrbJFD/view" }
               ]}
             />
 
@@ -306,7 +306,8 @@ export default function Home() {
                 "Top 15% problem solver on LeetCode, solved 600+ questions across LeetCode and Codeforces"
               ]}
               links={[
-                { label: "Certificate", href: "https://a2sv.org/certificate/biniyam-zergaw" }
+                { label: "Certificate", href: "https://a2sv.org/" },
+                { label: "Top 15% LeetCode", href: "https://leetcode.com/u/biniyam112/" }
               ]}
             />
           </div>
