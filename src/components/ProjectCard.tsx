@@ -1,24 +1,45 @@
+type ProjectLink = {
+    label: string;
+    href: string;
+};
+
 type Props = {
     title: string;
     category?: string;
     description: string;
-    onExplore?: () => void;
-    onNext?: () => void;
+    period?: string;
+    tags?: string[];
+    links?: ProjectLink[];
 };
 
-export default function ProjectCard({ title, category = "", description }: Props) {
+export default function ProjectCard({ title, category = "", description, period, tags = [], links = [] }: Props) {
     return (
-        <article style={{ background: 'var(--card-bg)', borderColor: 'var(--card-border)' }} className="p-8 rounded-lg border">
-            <div className="mb-6">
-                <div style={{ color: 'var(--primary)', letterSpacing: 'var(--letter-spacing-wide)' }} className="font-bold tracking-wider">{category.toUpperCase()}</div>
-                <h3 style={{ letterSpacing: 'var(--letter-spacing-tight)' }} className="section-subtitle text-4xl font-extrabold mt-2">{title}</h3>
+        <article className="project-card">
+            <div className="project-head">
+                <div className="project-category">{category.toUpperCase()}</div>
+                <h3 className="project-title">{title}</h3>
+                {period && <span className="project-period">{period}</span>}
             </div>
 
-            <p style={{ color: 'var(--muted)', letterSpacing: 'var(--letter-spacing-normal)', lineHeight: 'var(--body-line-height)' }} className="max-w-2xl mb-6">{description}</p>
+            <p className="project-description">{description}</p>
 
-            <div className="flex items-center gap-4">
-                <button style={{ background: 'var(--primary)', color: 'var(--on-primary)' }} className="px-6 py-3 rounded-lg font-semibold">EXPLORE</button>
-            </div>
+            {tags.length > 0 && (
+                <div className="courses-grid mb-1">
+                    {tags.map((t) => (
+                        <span key={t} className="course-chip">{t}</span>
+                    ))}
+                </div>
+            )}
+
+            {links.length > 0 && (
+                <div className="edu-links">
+                    {links.map((l) => (
+                        <a key={l.href} href={l.href} target="_blank" rel="noopener noreferrer" className="edu-link">
+                            {l.label}
+                        </a>
+                    ))}
+                </div>
+            )}
         </article>
     );
 }

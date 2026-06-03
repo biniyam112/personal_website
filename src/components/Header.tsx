@@ -54,10 +54,21 @@ export default function Header() {
         return () => window.removeEventListener("scroll", onScroll);
     }, []);
 
+    useEffect(() => {
+        const mq = window.matchMedia("(min-width: 768px)");
+        function onViewportChange(e: MediaQueryListEvent | MediaQueryList) {
+            if (e.matches) setMobileMenuOpen(false);
+        }
+        onViewportChange(mq);
+        mq.addEventListener("change", onViewportChange);
+        return () => mq.removeEventListener("change", onViewportChange);
+    }, []);
+
     const navLinks = [
         { href: "#about", label: "About" },
-        { href: "#projects", label: "Projects" },
+        { href: "#research", label: "Research" },
         { href: "#experience", label: "Experience" },
+        { href: "#projects", label: "Projects" },
         { href: "#contact", label: "Contact" },
     ];
 
@@ -66,12 +77,14 @@ export default function Header() {
             <header className={`modern-navbar ${scrolled ? 'scrolled' : ''}`}>
                 <div className="navbar-container">
                     {/* Logo/Brand */}
-                    <div className="navbar-brand">
+                    <div className="navbar-brand md:hidden">
                         <Link href="/" className="brand-link">
                             <div className="brand-initial">B</div>
                             <span className="brand-text">Biniyam</span>
                         </Link>
                     </div>
+
+                    <div className="navbar-spacer hidden md:block" aria-hidden="true" />
 
                     {/* Desktop Navigation */}
                     <nav className="desktop-nav">
@@ -100,7 +113,7 @@ export default function Header() {
                         </button>
 
                         {/* Resume Button */}
-                        <Link href="/Biniyam Zergaw Resume.pdf" className="resume-btn">
+                        <Link href="/Biniyam Zergaw Resume.pdf" target="_blank" rel="noopener noreferrer" className="resume-btn">
                             Resume
                         </Link>
 
@@ -136,10 +149,12 @@ export default function Header() {
                         ))}
                         <Link
                             href="/Biniyam Zergaw Resume.pdf"
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className="mobile-resume-btn"
                             onClick={() => setMobileMenuOpen(false)}
                         >
-                            Download Resume
+                            Resume PDF
                         </Link>
                     </nav>
                 </div>

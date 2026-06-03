@@ -1,250 +1,268 @@
 "use client";
 
 import Image from "next/image";
-import ExperienceCard from "@/components/ExperienceCard";
 import ProjectCard from "@/components/ProjectCard";
 import EducationCard from "@/components/EducationCard";
 import SkillsSection from "@/components/SkillsSection";
 import WorkExperienceCard from "@/components/WorkExperienceCard";
 import CourseCard from "@/components/CourseCard";
 
+const RESEARCH_INTERESTS = [
+  "Machine Learning",
+  "Data Mining",
+  "Applied Deep Learning",
+  "Natural Language Processing",
+  "Socio-economic Data Analysis",
+  "Optimization",
+];
+
 export default function Home() {
   return (
-    <main className="min-h-screen pt-32">
-      {/* Hero Section */}
-      <section className="relative max-w-7xl mx-auto px-6 py-24 md:py-32">
-        {/* Background elements */}
-        <div className="absolute top-0 right-0 w-full h-full overflow-hidden -z-10">
-          <div className="absolute top-20 right-20 w-64 h-64 rounded-full bg-gradient-to-br from-emerald-200/20 to-emerald-400/10 blur-3xl"></div>
-          <div className="absolute bottom-20 left-20 w-72 h-72 rounded-full bg-gradient-to-tr from-emerald-300/10 to-emerald-500/5 blur-3xl"></div>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          {/* Left Content */}
-          <div className="space-y-8 z-10">
-            <div className="space-y-3">
-              <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-emerald-100/30 border border-emerald-200 dark:border-emerald-800/30">
-                <span style={{ color: 'var(--primary)', letterSpacing: 'var(--letter-spacing-wide)' }} className="text-sm font-semibold">DATA SCIENCE MASTER&apos;S STUDENT</span>
+    <main className="min-h-screen pt-28">
+      {/* About / Hero */}
+      <section id="about" className="section pt-12 md:pt-16">
+        <div className="section-inner">
+          <div className="grid grid-cols-1 md:grid-cols-[1.6fr_1fr] gap-12 lg:gap-16 items-center">
+            {/* Left: intro */}
+            <div className="space-y-6">
+              <div className="inline-flex items-center px-3.5 py-1 rounded-full bg-emerald-100/40 border border-emerald-200 dark:border-emerald-800/40">
+                <span style={{ color: 'var(--primary)', letterSpacing: 'var(--letter-spacing-wide)' }} className="text-xs font-semibold uppercase">
+                  M.S. Data Science Student
+                </span>
               </div>
-              <h1 className="hero-title text-5xl md:text-6xl font-extrabold tracking-tight" style={{ letterSpacing: 'var(--letter-spacing-tight)' }}>
-                <span className="block">BINIYAM</span>
-                <span className="block" style={{ color: 'var(--primary)' }}>ZERGAW</span>
+
+              <h1 className="hero-title text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight" style={{ letterSpacing: 'var(--letter-spacing-tight)' }}>
+                Biniyam <span style={{ color: 'var(--primary)' }}>Zergaw</span>
               </h1>
+
+              <p className="hero-lead text-lg max-w-2xl">
+                M.S. in Data Science student at <span className="font-medium">Fordham University</span> in New York, and a
+                Graduate Research Assistant studying socio-economic indicators of housing distress. I work at the
+                intersection of machine learning, data engineering, and applied research, and I am preparing for doctoral study.
+              </p>
+
+              {/* Quick links */}
+              <div className="quick-links">
+                <a href="mailto:biniyamd.zergaw@gmail.com" className="quick-link">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                    <polyline points="22,6 12,13 2,6" />
+                  </svg>
+                  <span>biniyamd.zergaw@gmail.com</span>
+                </a>
+                <a href="https://www.linkedin.com/in/biniyam-demissew/" target="_blank" rel="noopener noreferrer" className="quick-link">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                  </svg>
+                  <span>LinkedIn</span>
+                </a>
+                <a href="https://github.com/biniyam112" target="_blank" rel="noopener noreferrer" className="quick-link">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+                  </svg>
+                  <span>GitHub</span>
+                </a>
+                <a href="https://leetcode.com/u/biniyam112/" target="_blank" rel="noopener noreferrer" className="quick-link">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M9 18l-6-6 6-6" />
+                    <path d="M15 6l6 6-6 6" />
+                  </svg>
+                  <span>LeetCode</span>
+                </a>
+                <span className="quick-link quick-link--static">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                    <circle cx="12" cy="10" r="3" />
+                  </svg>
+                  <span>New York, NY</span>
+                </span>
+              </div>
+
+              <div className="flex flex-wrap items-center gap-3 pt-2">
+                <a href="#research" style={{ background: 'var(--primary)', color: 'var(--on-primary)' }}
+                  className="inline-flex items-center px-5 py-2.5 rounded-lg font-semibold transition-transform hover:-translate-y-0.5">
+                  View Research
+                </a>
+                <a href="#projects" className="hero-secondary-btn inline-flex items-center px-5 py-2.5 rounded-lg font-medium border transition-colors">
+                  Projects
+                </a>
+              </div>
             </div>
 
-            <p
-              style={{ letterSpacing: 'var(--letter-spacing-normal)', lineHeight: 'var(--body-line-height)' }}
-              className="section-subtitle text-lg max-w-xl"
-            >
-              Data Science master&apos;s student at <span className="font-medium">Fordham University</span> in New York. Passionate about working on ML and big data projects. Looking forward to internships in data science and software development.
-            </p>
-
-            <div className="flex flex-wrap items-center gap-4 pt-4">
-              <a href="#projects"
-                style={{ background: 'var(--primary)', color: 'var(--on-primary)' }}
-                className="inline-block px-6 py-3 rounded-full font-semibold transition-transform hover:scale-105 shadow-lg shadow-emerald-500/20">
-                VIEW PROJECTS
-              </a>
-              <a href="#contact"
-                className="section-subtitle inline-flex items-center px-6 py-3 rounded-full font-medium border border-emerald-200 dark:border-emerald-800/50 transition-colors hover:bg-emerald-50 dark:hover:bg-emerald-900/20">
-                CONTACT ME
-                <svg xmlns="http://www.w3.org/2000/svg" className="ml-2 h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                  <path fillRule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
-                </svg>
-              </a>
-            </div>
-          </div>
-
-          {/* Right Content */}
-          <div className="relative z-10">
-            <div className="relative">
-              {/* Profile image with decorative border */}
-              <div className="absolute inset-0 -m-4 rounded-2xl bg-gradient-to-br from-emerald-100 to-emerald-300 dark:from-emerald-800/30 dark:to-emerald-600/20 blur-sm"></div>
-              <div className="relative rounded-2xl overflow-hidden bg-emerald-50/50 dark:bg-emerald-900/20 backdrop-blur-sm p-2 border border-emerald-100 dark:border-emerald-800/30">
+            {/* Right: portrait */}
+            <div className="justify-self-center md:justify-self-end">
+              <div className="portrait-frame">
                 <Image
-                  src="/images/pixel_profile.png"
+                  src="/images/profile_image.jpg"
                   alt="Biniyam Zergaw"
-                  width={520}
-                  height={520}
+                  width={360}
+                  height={360}
                   className="object-cover w-full h-full rounded-xl"
                   priority
                 />
               </div>
+            </div>
+          </div>
 
-              {/* Tech stack badges */}
-              <div className="absolute -bottom-6 -left-6 px-4 py-2 rounded-lg bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm shadow-lg border border-gray-100 dark:border-gray-700/50">
-                <div className="flex items-center gap-2">
-                  <span className="text-xs font-semibold text-gray-500 dark:text-gray-400">Python</span>
-                  <span className="text-xs font-semibold text-gray-500 dark:text-gray-400">•</span>
-                  <span className="text-xs font-semibold text-gray-500 dark:text-gray-400">ML</span>
-                  <span className="text-xs font-semibold text-gray-500 dark:text-gray-400">•</span>
-                  <span className="text-xs font-semibold text-gray-500 dark:text-gray-400">Data Science</span>
-                </div>
-              </div>
-
-              {/* Experience badge */}
-              <div className="absolute -top-3 -right-3 px-4 py-2 rounded-full bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm shadow-lg border border-gray-100 dark:border-gray-700/50">
-                <div className="flex items-center gap-2">
-                  <div className="h-2 w-2 rounded-full bg-emerald-500"></div>
-                  <span className="text-xs font-semibold">2+ Years Experience</span>
-                </div>
-              </div>
+          {/* Research interests */}
+          <div className="mt-12 md:mt-16">
+            <h2 className="eyebrow">Research Interests</h2>
+            <div className="courses-grid mt-3">
+              {RESEARCH_INTERESTS.map((interest) => (
+                <span key={interest} className="interest-chip">{interest}</span>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
-      {/* Skills Section */}
-      <SkillsSection
-        title="Skills"
-        subtitle="These skill ratings reflect my proficiency across data science, software engineering, and design disciplines. I'm continuously learning and expanding my expertise through academic projects, personal initiatives, and hands-on experience. View my work at "
-        githubUrl="https://github.com/biniyam112"
-        skills={[
-          { skill: "Data Structures & Algorithms", percentage: 93 },
-          { skill: "Data Analysis & Visualization", percentage: 84 },
-          { skill: "Flutter & Dart", percentage: 90 },
-          { skill: "FastAPI & Backend Development", percentage: 68 },
-          { skill: "PostgreSQL & Database Design", percentage: 87 },
-          { skill: "Docker & Kubernetes", percentage: 60 },
-          { skill: "Determination to Learn", percentage: 100 },
-        ]}
-      />
-
-      <section id="projects" className="max-w-7xl mx-auto px-6 py-16">
-        <div className="mb-8">
-          <h2 className="section-title text-3xl font-extrabold">PROJECTS</h2>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <ProjectCard
-            title="Checkers bot Development"
-            category="Reinforcement Learning & Search"
-            description={`Used parallelism, iterative deepening, and bitboards (including magic bitboards) to deepen search capabilities. Implemented Minimax, Alpha-Beta Pruning, and Zobrist Hashing to optimize decision-making, reducing computation time by ~84% on average.`}
-          />
-
-          <ProjectCard
-            title="Forest fire prediction"
-            category="Machine Learning & Data Science"
-            description={`Developed comprehensive machine learning models for forest fire prediction using Scikit-learn, PyTorch, and Seaborn. Evaluated neural networks, SVM, and Rakel ensemble to identify best performing approaches.`}
-          />
-
-          <ProjectCard
-            title="Fare Finder"
-            category="FastAPI & Searching Algorithms"
-            description={`Built backend with SQLAlchemy ORM and PostgreSQL; implemented database migrations and designed schemas. Implemented shortest-path algorithms that consider time, cost, and other constraints; secured API endpoints with JWT authentication.`}
-          />
-        </div>
-      </section>
-
-      <section id="experience" className="max-w-7xl mx-auto px-6 py-16">
-        <div className="mb-12">
-          <h2 className="section-title text-3xl font-extrabold">DATA-DRIVEN INSIGHTS,</h2>
-          <h3 className="section-title text-3xl font-extrabold">IMPACTFUL SOLUTIONS</h3>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          <ExperienceCard
-            title="ANALYZE"
-            imageSrc="/images/plan.png"
-            subtitle={`Process and analyze 70k+ row datasets using Python, pandas, and statistical methods to extract actionable insights. Proficient in data cleaning, feature engineering, and exploratory data analysis for ML applications.`}
-          />
-
-          <ExperienceCard
-            title="MODEL"
-            imageSrc="/images/develop.png"
-            subtitle={`Design and train machine learning models achieving 98% accuracy using Scikit-learn, PyTorch, and TensorFlow. Experienced in neural networks, ensemble methods, and model optimization techniques.`}
-          />
-
-          <ExperienceCard
-            title="DEVELOP"
-            imageSrc="/images/write.png"
-            subtitle={`Build scalable backend systems with FastAPI, PostgreSQL, and Docker. Strong foundation in algorithms and data structures with 600+ LeetCode problems solved (Top 15%). Experience with React, Flutter, and cloud deployment.`}
-          />
-
-          <ExperienceCard
-            title="OPTIMIZE"
-            imageSrc="/images/design.png"
-            subtitle={`Implement efficient algorithms like Alpha-Beta Pruning and Zobrist Hashing to achieve 84% computation reduction. Focus on performance optimization, code quality, and system scalability for production environments.`}
-          />
-        </div>
-      </section>
-
-      {/* Work Experience Section */}
-      <section className="py-16 px-4">
-        <div className="max-w-6xl mx-auto">
-          <header className="mb-10 text-center">
-            <h2 className="section-title text-4xl md:text-5xl font-extrabold tracking-tight">
-              Work Experience
-            </h2>
-            <p className="mt-2 text-sm md:text-base section-subtitle">
-              Professional experience and contributions
-            </p>
+      {/* Research / Publications */}
+      <section id="research" className="section">
+        <div className="section-inner">
+          <header className="section-header">
+            <h2 className="section-title text-3xl md:text-4xl font-extrabold tracking-tight">Research</h2>
+            <p className="section-lead">Ongoing research and work in progress.</p>
           </header>
 
-          <div className="max-w-4xl mx-auto space-y-6">
+          <div className="max-w-4xl space-y-6">
+            <article className="publication-card">
+              <div className="pub-venue">Working paper · 2026</div>
+              <h3 className="pub-title">
+                Socio-economic Indicators of Housing Distress in New York City
+              </h3>
+              <p className="pub-authors">Biniyam Zergaw · University Neighborhood Housing Program (UNHP), Fordham University</p>
+              <p className="pub-abstract">
+                Analyzing NYC housing data from UNHP alongside Census-tract data to identify correlations between
+                socio-economic indicators and housing distress. Building data pipelines and predictive models to surface
+                insights for a forthcoming paper.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      {/* Experience */}
+      <section id="experience" className="section">
+        <div className="section-inner">
+          <header className="section-header">
+            <h2 className="section-title text-3xl md:text-4xl font-extrabold tracking-tight">Experience</h2>
+            <p className="section-lead">Research and industry experience in data science and software engineering.</p>
+          </header>
+
+          <div className="max-w-4xl space-y-6">
             <WorkExperienceCard
               company="Fordham University"
-              position="Graduate Assistant"
-              duration="August 2025 - Present"
+              position="Graduate Research Assistant"
+              duration="Aug 2025 – May 2027 (Expected)"
               location="New York, NY"
               accomplishments={[
-                "Analyzed 70,000+ rows of data from the UNHP research group to create a model predicting distressed households with 98% accuracy",
-                "Built scalable data pipelines using Hugging Face, Keras, and Dynamic ML SMOTE to address class imbalance",
-                "Currently writing a research paper showcasing findings of socioeconomic insights discovered during the research"
+                "Analyzing NYC housing data from the University Neighborhood Housing Program (UNHP) and Census-tract data to identify correlations between socio-economic indicators of housing distress.",
+                "Building data processing pipelines and predictive models, and preparing a paper to share findings and insights.",
+              ]}
+            />
+
+            <WorkExperienceCard
+              company="Turing"
+              position="JavaScript Model Trainer, Data Scientist"
+              duration="May 2025 – Aug 2025"
+              location="Palo Alto, CA (Remote)"
+              accomplishments={[
+                "Evaluated large language model (LLM) performance on text generation, code completion, and mathematical reasoning tasks using automated benchmarks and human evaluation.",
+                "Worked with exact match and pass@k metrics to assess model accuracy.",
               ]}
             />
 
             <WorkExperienceCard
               company="RateEat"
-              position="Project Lead and Software Engineer"
-              duration="January 2024 - October 2024"
-              location="Remote"
+              position="Project Lead & Software Developer"
+              duration="Oct 2023 – Oct 2024"
+              location="Addis Ababa, Ethiopia"
               accomplishments={[
-                "Led a cross-functional team of 9 members for a food review social app development",
-                "Worked on data analysis of 15,000+ rows of large restaurant, food, and user activity data using Python scripts for cleaning, pre-processing, and storing",
-                "Implemented mobile app with API integration, authentication, session management, and data caching"
+                "Led a team of 9 developers to build a data warehousing platform aggregating data for over 1,000 restaurants.",
+                "Automated data population using OCR for physical menus, plus web scraping and the Google Places API for digital ones, using LLMs as a semantic translator to structure data.",
+                "Contributed ~40% of the mobile application code using Flutter/Dart.",
               ]}
             />
 
             <WorkExperienceCard
-              company="Upwork - Freelance Platform"
-              position="Flutter Mobile Developer - Rising Talent"
-              duration="Mar 2025 - December 2025"
-              location="Remote"
+              company="SkillBridge"
+              position="Software Developer"
+              duration="Aug 2022 – Oct 2023"
+              location="Addis Ababa, Ethiopia"
               accomplishments={[
-                "Flutter mobile development with Firebase backend",
-                "Cloud functions for serverless backend logic and push notifications",
-                "100% project completion rate",
+                "Built backend services for an AI-powered learning platform that helps graduating students prepare for national exams.",
+                "Reduced average analytics query latency by 30% by redesigning PostgreSQL indexes and optimizing Snowflake joins.",
+                "Designed a RAG-based AI assistant for Math and Physics with LangChain, improving benchmarked math solution accuracy from 53% to 89%.",
               ]}
             />
           </div>
         </div>
       </section>
 
-      {/* Education Section */}
-      <section className="py-16 px-4">
-        <div className="max-w-6xl mx-auto">
-          <header className="mb-10 text-center">
-            <h2 className="section-title text-4xl md:text-5xl font-extrabold tracking-tight">Education</h2>
-            <p className="mt-2 text-sm md:text-base section-subtitle">Academic background and relevant coursework</p>
+      {/* Projects */}
+      <section id="projects" className="section">
+        <div className="section-inner">
+          <header className="section-header">
+            <h2 className="section-title text-3xl md:text-4xl font-extrabold tracking-tight">Projects</h2>
+            <p className="section-lead">Selected academic and personal projects.</p>
           </header>
 
-          <div className="max-w-4xl mx-auto space-y-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <ProjectCard
+              title="Spoken Language Identification"
+              category="Deep Learning"
+              period="Apr – May 2026"
+              description="Spoken language identification for 9 languages from audio data using CNN and LSTM deep learning models."
+              tags={["CNN", "LSTM", "Audio", "TensorFlow"]}
+            />
+
+            <ProjectCard
+              title="NYC TLC Uber & Lyft Analysis"
+              category="Machine Learning & Data Science"
+              period="Dec 2025"
+              description="Analysis of NYC ride-sharing patterns through supervised and unsupervised learning on TLC trip data."
+              tags={["Pandas", "Scikit-learn", "Clustering"]}
+            />
+
+            <ProjectCard
+              title="Customer Basket Analytics"
+              category="Data Mining"
+              period="Jul – Aug 2025"
+              description="Shopping-behavior analysis combining dimensionality reduction and density-based clustering to segment customers."
+              tags={["Python", "UMAP", "HDBSCAN", "Pandas"]}
+            />
+
+            <ProjectCard
+              title="Chess Bot"
+              category="Reinforcement Learning & Search"
+              period="Feb – Mar 2022"
+              description="A chess engine using search algorithms and magic bitboards. Implemented Minimax with Alpha-Beta Pruning and Zobrist Hashing to optimize decision-making."
+              tags={["Minimax", "Alpha-Beta", "Bitboards", "Zobrist Hashing"]}
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Education */}
+      <section id="education" className="section">
+        <div className="section-inner">
+          <header className="section-header">
+            <h2 className="section-title text-3xl md:text-4xl font-extrabold tracking-tight">Education</h2>
+            <p className="section-lead">Academic background and relevant coursework.</p>
+          </header>
+
+          <div className="max-w-4xl space-y-6">
             <EducationCard
               school="Fordham University"
-              degree="MS in Data Science"
-              duration="August 2024 – May 2026 (Expected)"
+              degree="M.S. in Data Science"
+              duration="Aug 2025 – May 2027 (Expected)"
               location="New York, NY"
-              gpa="3.9/4.0"
+              gpa="4.00/4.0"
               courses={[
-                "Machine Learning",
-                "Deep Learning",
-                "Statistical Inference",
                 "Data Mining",
-                "Big Data Systems",
-                "Database Systems",
-                "Natural Language Processing",
-                "Optimization",
+                "Data Visualization",
+                "Machine Learning",
+                "Machine Learning in Finance",
               ]}
               links={[
                 { label: "Program Page", href: "https://www.fordham.edu/academics/departments/computer-and-information-science/academic-programs/graduate-programs/master-of-science-in-data-science/" },
@@ -253,10 +271,10 @@ export default function Home() {
 
             <EducationCard
               school="Addis Ababa University"
-              degree="BSc in Computer Science"
-              duration="September 2017 – June 2022"
+              degree="B.Sc. in Software Engineering — Great Distinction"
+              duration="Sep 2018 – Jun 2022"
               location="Addis Ababa, Ethiopia"
-              gpa="3.50/4.0"
+              gpa="3.5/4.0"
               courses={[
                 "Algorithms",
                 "Data Structures",
@@ -272,15 +290,28 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Courses Section */}
-      <section className="py-16 px-4">
-        <div className="max-w-6xl mx-auto">
-          <header className="mb-10 text-center">
-            <h2 className="section-title text-4xl md:text-5xl font-extrabold tracking-tight" style={{ letterSpacing: 'var(--letter-spacing-tight)' }}>COURSES</h2>
-            <p className="mt-2 text-sm md:text-base section-subtitle">Professional training and certifications</p>
+      {/* Skills */}
+      <SkillsSection
+        title="Skills"
+        subtitle="Tools and technologies I work with across data science and software engineering. More at"
+        githubUrl="https://github.com/biniyam112"
+        categories={[
+          { category: "Languages", items: ["Python", "JavaScript", "TypeScript", "SQL", "Dart"] },
+          { category: "Frameworks & Libraries", items: ["TensorFlow", "Scikit-learn", "Pandas", "Seaborn", "LangChain", "FastAPI", "Beautiful Soup", "React.js", "Next.js", "Flutter"] },
+          { category: "Data Science", items: ["Classification & Clustering", "Model Optimization", "Data Visualization", "Exploratory Data Analysis", "Unsupervised Learning"] },
+          { category: "Tools & Platforms", items: ["Git", "REST APIs", "Docker", "Kubernetes", "Snowflake", "Tableau", "Google Cloud", "AWS"] },
+        ]}
+      />
+
+      {/* Certifications */}
+      <section id="certifications" className="section">
+        <div className="section-inner">
+          <header className="section-header">
+            <h2 className="section-title text-3xl md:text-4xl font-extrabold tracking-tight">Certifications</h2>
+            <p className="section-lead">Professional training and programs.</p>
           </header>
 
-          <div className="max-w-4xl mx-auto space-y-8">
+          <div className="max-w-4xl space-y-6">
             <CourseCard
               title="Supervised Machine Learning: Regression and Classification"
               institution="Stanford Online"
@@ -290,9 +321,9 @@ export default function Home() {
             />
 
             <CourseCard
-              title="UN Machine Learning Training"
-              institution="United Nations Frontier Tech Leaders Programme"
-              description="Participated in the 2025 United Nations Development Program Machine Learning cohort."
+              title="Machine Learning Trainee"
+              institution="UNDP — UN Frontier Tech Leaders Programme"
+              description="Graduate of the 2025 United Nations Development Programme Machine Learning cohort."
               links={[
                 { label: "Certificate", href: "https://drive.google.com/file/d/1wTiGOC4ATiVHsWwmwnBzzfMGApsrbJFD/view" }
               ]}
@@ -300,65 +331,62 @@ export default function Home() {
 
             <CourseCard
               title="Data Structures and Algorithms"
-              institution="A2SV"
+              institution="Africa to Silicon Valley (A2SV)"
               bulletPoints={[
-                "Completed a 1-year data structure and algorithm training program.",
-                "Top 15% problem solver on LeetCode, solved 600+ questions across LeetCode and Codeforces"
+                "Completed a 1-year data structures and algorithms training program.",
+                "Top 15% problem solver on LeetCode; solved 700+ questions across LeetCode and Codeforces.",
               ]}
               links={[
-                { label: "Certificate", href: "https://a2sv.org/" },
-                { label: "Top 15% LeetCode", href: "https://leetcode.com/u/biniyam112/" }
+                { label: "A2SV", href: "https://a2sv.org/" },
+                { label: "LeetCode Profile", href: "https://leetcode.com/u/biniyam112/" }
               ]}
             />
+          </div>
+
+          {/* Achievements */}
+          <div className="max-w-4xl mt-8">
+            <h3 className="eyebrow">Achievements</h3>
+            <div className="courses-grid mt-3">
+              <a href="https://drive.google.com/file/d/13EPoVkHLlcNvueFZeCU5vptBXsvl0hH1/view" target="_blank" rel="noopener noreferrer" className="achievement-link">IELTS Overall Band 8.0</a>
+              <a href="https://drive.google.com/file/d/1-vnbV7liP0kQF3HvRU7APiEqCQoIKNYE/view" target="_blank" rel="noopener noreferrer" className="achievement-link">GRE Quantitative 164/170</a>
+              <a href="https://leetcode.com/u/biniyam112/" target="_blank" rel="noopener noreferrer" className="achievement-link">Top 15% on LeetCode</a>
+              <a href="https://drive.google.com/file/d/1jDMddtM0wyxkZb1SLsVM3T8n4QFAjclE/view" target="_blank" rel="noopener noreferrer" className="achievement-link">GITEX Africa 2024 Exhibitor</a>
+              <a href="https://drive.google.com/file/d/1inyY3d6xZ5DpoVUR4M9CkBiVeBCCpuCX/view" target="_blank" rel="noopener noreferrer" className="achievement-link">World Youth Festival 2024 Delegate</a>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Contact Section - Footer Style */}
-      <footer id="contact" className="py-12 px-6 border-t border-gray-200 dark:border-gray-800">
-        <div className="max-w-5xl mx-auto">
-          <h2 className="section-title text-2xl font-semibold mb-6" style={{ color: 'var(--primary)', letterSpacing: 'var(--letter-spacing-tight)' }}>GET IN TOUCH</h2>
+      {/* Contact */}
+      <footer id="contact" className="section contact-section">
+        <div className="section-inner">
+          <header className="section-header">
+            <h2 className="section-title text-3xl md:text-4xl font-extrabold tracking-tight">Contact</h2>
+            <p className="section-lead">
+              I am always glad to connect about research collaborations, graduate opportunities, and data science work.
+              Email is the best way to reach me.
+            </p>
+          </header>
 
-          <div className="contact-footer">
-            {/* LinkedIn */}
-            <a href="https://linkedin.com/in/biniyam-zergaw" target="_blank" rel="noopener noreferrer" className="contact-link">
-              <div className="contact-icon linkedin">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                </svg>
-              </div>
-              <span className="contact-value">Biniyam Zergaw</span>
+          <div className="contact-list">
+            <a href="mailto:biniyamd.zergaw@gmail.com" className="contact-method">
+              <span className="contact-method-label">Email</span>
+              <span className="contact-method-value">biniyamd.zergaw@gmail.com</span>
             </a>
 
-            {/* Telegram */}
-            {/* <a href="https://t.me/bnym112" target="_blank" rel="noopener noreferrer" className="contact-link">
-              <div className="contact-icon telegram">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.96 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z" />
-                </svg>
-              </div>
-              <span className="contact-value">@bnym112</span>
-            </a> */}
+            <div className="contact-method">
+              <span className="contact-method-label">Location</span>
+              <span className="contact-method-value">New York, NY</span>
+            </div>
 
-            {/* Email */}
-            <a href="mailto:biniyamdemissew112@gmail.com" className="contact-link">
-              <div className="contact-icon email">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                  <polyline points="22,6 12,13 2,6"></polyline>
-                </svg>
-              </div>
-              <span className="contact-value">biniyamdemissew112@gmail.com</span>
+            <a href="https://www.linkedin.com/in/biniyam-demissew/" target="_blank" rel="noopener noreferrer" className="contact-method">
+              <span className="contact-method-label">LinkedIn</span>
+              <span className="contact-method-value">in/biniyam-demissew</span>
             </a>
 
-            {/* WhatsApp */}
-            <a href="https://wa.me/251941726567" target="_blank" rel="noopener noreferrer" className="contact-link">
-              <div className="contact-icon whatsapp">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
-                </svg>
-              </div>
-              <span className="contact-value">+251 941726567</span>
+            <a href="https://github.com/biniyam112" target="_blank" rel="noopener noreferrer" className="contact-method">
+              <span className="contact-method-label">GitHub</span>
+              <span className="contact-method-value">github.com/biniyam112</span>
             </a>
           </div>
         </div>
