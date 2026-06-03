@@ -13,6 +13,11 @@ const beVietnam = Be_Vietnam_Pro({
 export const metadata: Metadata = {
   title: "Biniyam Zergaw - Data Science Portfolio",
   description: "Data Science master's student at Fordham University. Passionate about ML and big data projects.",
+  icons: {
+    icon: "/images/fav_icon.png",
+    shortcut: "/images/fav_icon.png",
+    apple: "/images/fav_icon.png",
+  },
 };
 
 export default function RootLayout({
